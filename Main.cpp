@@ -1,11 +1,11 @@
-#include "Avatar.h"
+п»ї#include "Avatar.h"
 
 int main() {
   srand(time(NULL));
   SetConsoleCP(1251); 
   SetConsoleOutputCP(1251);
-  // загрузочный экран
-  cout << "  Добро пожаловать!\n\tЗагрузка";
+  // Р·Р°РіСЂСѓР·РѕС‡РЅС‹Р№ СЌРєСЂР°РЅ
+  cout << "  Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ!\n\tР—Р°РіСЂСѓР·РєР°";
   for (int i = 0; i < 3; i++) {
     Sleep(1000);
     cout << " . ";
@@ -13,55 +13,55 @@ int main() {
   Sleep(500);
   int moves, choice, time_game;
   while (true) {
-    // начальный экран 
+    // РЅР°С‡Р°Р»СЊРЅС‹Р№ СЌРєСЂР°РЅ 
     system("cls");
     Avatar pet;
     moves = 0;
-    cout << "Вы завели питомца! Введите имя: ";
+    cout << "Р’С‹ Р·Р°РІРµР»Рё РїРёС‚РѕРјС†Р°! Р’РІРµРґРёС‚Рµ РёРјСЏ: ";
     string name;
     cin >> name;
     CIN_CLEAR
     pet.set_name(name);
-    // вывод всех вариантов внешности
+    // РІС‹РІРѕРґ РІСЃРµС… РІР°СЂРёР°РЅС‚РѕРІ РІРЅРµС€РЅРѕСЃС‚Рё
     pet.show_look();
     pet.set_look(2);
     pet.show_look();
     pet.set_look(3);
     pet.show_look();
     cout << endl;
-    cout << "Выберете вид питомца (1, 2, 3): ";
+    cout << "Р’С‹Р±РµСЂРµС‚Рµ РІРёРґ РїРёС‚РѕРјС†Р° (1, 2, 3): ";
     cin >> choice;
     CIN_CLEAR
     pet.set_look(choice);
     system("pause");
     time_t life_start = time(NULL);
     while (!pet.dead()) {
-      // начало отдельного цикла жизни
+      // РЅР°С‡Р°Р»Рѕ РѕС‚РґРµР»СЊРЅРѕРіРѕ С†РёРєР»Р° Р¶РёР·РЅРё
       time_t start_time = time(NULL);
       system("cls");
       pet.show_look();
       pet.show();
-      // кормление
+      // РєРѕСЂРјР»РµРЅРёРµ
       time_t now_time = time(NULL);
       time_game = now_time - start_time;
       pet.money(time_game);
       pet.show_gold();
-      cout << endl << "\t(введите 1, чтобы согласиться)" << endl;
-      cout << "Хотите покормить " << pet.get_name() << "? ";
+      cout << endl << "\t(РІРІРµРґРёС‚Рµ 1, С‡С‚РѕР±С‹ СЃРѕРіР»Р°СЃРёС‚СЊСЃСЏ)" << endl;
+      cout << "РҐРѕС‚РёС‚Рµ РїРѕРєРѕСЂРјРёС‚СЊ " << pet.get_name() << "? ";
       cin >> choice;
       CIN_CLEAR
       if (choice == 1) {
-        cout << "Выбор блюда: 1) Лунный пряник - (+10 Цена: 10)\n\t     2) Солёный тофу - (+20, Цена: 20)\n\t     3) Клёцки - (+30, Цена: 30)\t";
+        cout << "Р’С‹Р±РѕСЂ Р±Р»СЋРґР°: 1) Р›СѓРЅРЅС‹Р№ РїСЂСЏРЅРёРє - (+10 Р¦РµРЅР°: 10)\n\t     2) РЎРѕР»С‘РЅС‹Р№ С‚РѕС„Сѓ - (+20, Р¦РµРЅР°: 20)\n\t     3) РљР»С‘С†РєРё - (+30, Р¦РµРЅР°: 30)\t";
         cin >> choice;
         CIN_CLEAR
         pet.food(choice);
       }
-      // развлечения
+      // СЂР°Р·РІР»РµС‡РµРЅРёСЏ
       now_time = time(NULL);
       time_game = now_time - start_time;
       pet.money(time_game);
       pet.show_gold();
-      cout << "Хотите поиграть с " << pet.get_name() << "? ";
+      cout << "РҐРѕС‚РёС‚Рµ РїРѕРёРіСЂР°С‚СЊ СЃ " << pet.get_name() << "? ";
       cin >> choice;
       CIN_CLEAR
       int game = 0;
@@ -71,54 +71,54 @@ int main() {
         time_t game_end = time(NULL);
         game = game_end - game_start;
       }
-      // купание
+      // РєСѓРїР°РЅРёРµ
       now_time = time(NULL);
       time_game = now_time - start_time - game;
       pet.money(time_game);
       pet.show_gold();
-      cout << "Хотите покупать " << pet.get_name() << "? ";
+      cout << "РҐРѕС‚РёС‚Рµ РїРѕРєСѓРїР°С‚СЊ " << pet.get_name() << "? ";
       cin >> choice;
       CIN_CLEAR
       if (choice == 1) {
-        cout << "Выбор средства: 1) Мыло - (+15 Цена: 10)\n\t\t2) Гель - (+30 Цена: 30)\n\t\t3) Шампунь - (+45 Цена: 40)\t";
+        cout << "Р’С‹Р±РѕСЂ СЃСЂРµРґСЃС‚РІР°: 1) РњС‹Р»Рѕ - (+15 Р¦РµРЅР°: 10)\n\t\t2) Р“РµР»СЊ - (+30 Р¦РµРЅР°: 30)\n\t\t3) РЁР°РјРїСѓРЅСЊ - (+45 Р¦РµРЅР°: 40)\t";
         cin >> choice;
         CIN_CLEAR
         pet.shower(choice);
       }
-      // лечение
+      // Р»РµС‡РµРЅРёРµ
       now_time = time(NULL);
       time_game = now_time - start_time - game;
       pet.money(time_game);
       pet.show_gold();
-      cout << "Хотите вылечить " << pet.get_name() << "? ";
+      cout << "РҐРѕС‚РёС‚Рµ РІС‹Р»РµС‡РёС‚СЊ " << pet.get_name() << "? ";
       cin >> choice;
       CIN_CLEAR
       if (choice == 1) {
-        cout << "Выбор лекарства: 1) Сироп - (Лечит 1 стадию Цена: 10)\n\t\t 2) Таблетки - (Лечит до 2 стадии Цена: 30)\n\t\t 3) Антибиотик - (Лечит все стадии Цена: 40)\t";
+        cout << "Р’С‹Р±РѕСЂ Р»РµРєР°СЂСЃС‚РІР°: 1) РЎРёСЂРѕРї - (Р›РµС‡РёС‚ 1 СЃС‚Р°РґРёСЋ Р¦РµРЅР°: 10)\n\t\t 2) РўР°Р±Р»РµС‚РєРё - (Р›РµС‡РёС‚ РґРѕ 2 СЃС‚Р°РґРёРё Р¦РµРЅР°: 30)\n\t\t 3) РђРЅС‚РёР±РёРѕС‚РёРє - (Р›РµС‡РёС‚ РІСЃРµ СЃС‚Р°РґРёРё Р¦РµРЅР°: 40)\t";
         cin >> choice;
         CIN_CLEAR
         pet.heal(choice);
       }
-      // подсчёт показателей на конце одного отдельного цикла жизни
+      // РїРѕРґСЃС‡С‘С‚ РїРѕРєР°Р·Р°С‚РµР»РµР№ РЅР° РєРѕРЅС†Рµ РѕРґРЅРѕРіРѕ РѕС‚РґРµР»СЊРЅРѕРіРѕ С†РёРєР»Р° Р¶РёР·РЅРё
       now_time = time(NULL);
       time_game = now_time - start_time - game / 3;
-      Sleep(500); // 0,5 секунды
+      Sleep(500); // 0,5 СЃРµРєСѓРЅРґС‹
       pet.hungry(time_game);
       pet.funny(time_game);
       pet.hygienic(time_game);
       pet.ill(time_game);
       moves++;
-      if (pet.dead() == true) { // смерть
+      if (pet.dead() == true) { // СЃРјРµСЂС‚СЊ
         time_t life_end = time(NULL);
-        cout << endl << " [ Смерть ]" << endl;
+        cout << endl << " [ РЎРјРµСЂС‚СЊ ]" << endl;
         int life_time = life_end - life_start;
-        cout << " [ Время жизни: " << life_time << " сек. ]" << endl;
-        cout << " [ Количество ходов: " << moves << " ]" << endl;
-        cout << "Хотите выйти? ";
+        cout << " [ Р’СЂРµРјСЏ Р¶РёР·РЅРё: " << life_time << " СЃРµРє. ]" << endl;
+        cout << " [ РљРѕР»РёС‡РµСЃС‚РІРѕ С…РѕРґРѕРІ: " << moves << " ]" << endl;
+        cout << "РҐРѕС‚РёС‚Рµ РІС‹Р№С‚Рё? ";
         cin >> choice;
         CIN_CLEAR
         if (choice == 1) {
-          cout << "Спасибо за игру! Возвращайтесь :)" << endl;
+          cout << "РЎРїР°СЃРёР±Рѕ Р·Р° РёРіСЂСѓ! Р’РѕР·РІСЂР°С‰Р°Р№С‚РµСЃСЊ :)" << endl;
           return 0;
         }
       }

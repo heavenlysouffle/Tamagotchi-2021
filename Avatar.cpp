@@ -1,4 +1,4 @@
-#include "Avatar.h"
+п»ї#include "Avatar.h"
 
 void Avatar::set_name(string name) {
   this->name = name;
@@ -11,24 +11,24 @@ void Avatar::money(int time) {
 }
 
 void Avatar::show() {
-  cout << endl << "Жизни: " << life << endl;
-  cout << "Настроение: ";
-  if (life >= 90) cout << "счастливое" << endl;
-  if (life >= 75 && life < 90) cout << "радостное" << endl;
-  if (life >= 50 && life < 75) cout << "нейтральное" << endl;
-  if (life >= 25 && life < 50) cout << "подавленное" << endl;
-  if (life > 0 && life < 25) cout << "грустное" << endl;
-  cout << "Голод: " << hunger << endl;
-  cout << "Развлечения: " << fun << endl;
-  cout << "Гигиена: " << hygiene << endl;
-  cout << "Стадия болезни: " << illness_ind << endl;
+  cout << endl << "Р–РёР·РЅРё: " << life << endl;
+  cout << "РќР°СЃС‚СЂРѕРµРЅРёРµ: ";
+  if (life >= 90) cout << "СЃС‡Р°СЃС‚Р»РёРІРѕРµ" << endl;
+  if (life >= 75 && life < 90) cout << "СЂР°РґРѕСЃС‚РЅРѕРµ" << endl;
+  if (life >= 50 && life < 75) cout << "РЅРµР№С‚СЂР°Р»СЊРЅРѕРµ" << endl;
+  if (life >= 25 && life < 50) cout << "РїРѕРґР°РІР»РµРЅРЅРѕРµ" << endl;
+  if (life > 0 && life < 25) cout << "РіСЂСѓСЃС‚РЅРѕРµ" << endl;
+  cout << "Р“РѕР»РѕРґ: " << hunger << endl;
+  cout << "Р Р°Р·РІР»РµС‡РµРЅРёСЏ: " << fun << endl;
+  cout << "Р“РёРіРёРµРЅР°: " << hygiene << endl;
+  cout << "РЎС‚Р°РґРёСЏ Р±РѕР»РµР·РЅРё: " << illness_ind << endl;
 }
 
 void Avatar::show_gold() {
-  cout << "Золото: " << gold << endl;
+  cout << "Р—РѕР»РѕС‚Рѕ: " << gold << endl;
 }
 
-void Avatar::show_look() { // вывод внешности
+void Avatar::show_look() { // РІС‹РІРѕРґ РІРЅРµС€РЅРѕСЃС‚Рё
   cout << endl;
   if (look_ind == 1) {
     cout << " ()()\n (..)\n (` `)\n ` `" << endl;
@@ -44,7 +44,7 @@ void Avatar::show_look() { // вывод внешности
   }
 }
 
-void Avatar::set_look(int ind) { // установка внешности
+void Avatar::set_look(int ind) { // СѓСЃС‚Р°РЅРѕРІРєР° РІРЅРµС€РЅРѕСЃС‚Рё
   if (ind == 1)
     look_ind = 1;
   else if (ind == 2)
@@ -53,11 +53,11 @@ void Avatar::set_look(int ind) { // установка внешности
     look_ind = 3;
   else {
     look_ind = 1;
-    cout << "Такой опции нет. Автоматически установлен вид №1" << endl;
+    cout << "РўР°РєРѕР№ РѕРїС†РёРё РЅРµС‚. РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІРёРґ в„–1" << endl;
   }
 }
 
-void Avatar::hungry(int time) { // голод
+void Avatar::hungry(int time) { // РіРѕР»РѕРґ
   if (life > 100) { life = 100; }
   hunger -= (time / 3) * 5;
   if (hunger > 100) { hunger = 100; }
@@ -71,7 +71,7 @@ void Avatar::hungry(int time) { // голод
   if (life > 100) { life = 100; }
 }
 
-void Avatar::funny(int time) { // потребность в развлечениях
+void Avatar::funny(int time) { // РїРѕС‚СЂРµР±РЅРѕСЃС‚СЊ РІ СЂР°Р·РІР»РµС‡РµРЅРёСЏС…
   if (life > 100) { life = 100; }
   fun -= (time / 3) * 3;
   if (fun > 100) { fun = 100; }
@@ -85,7 +85,7 @@ void Avatar::funny(int time) { // потребность в развлечениях
   if (life > 100) { life = 100; }
 }
 
-void Avatar::hygienic(int time) { // загрязнение
+void Avatar::hygienic(int time) { // Р·Р°РіСЂСЏР·РЅРµРЅРёРµ
   if (life > 100) { life = 100; }
   int illness = 0;
   hygiene -= (time / 3) * 4;
@@ -122,7 +122,7 @@ void Avatar::hygienic(int time) { // загрязнение
   if (life > 100) { life = 100; }
 }
 
-void Avatar::ill(int time) { // болезнь
+void Avatar::ill(int time) { // Р±РѕР»РµР·РЅСЊ
   if (illness_ind == 1) { life -= (time / 5) * 3; }
   if (illness_ind == 2) { life -= (time / 5) * 5; }
   if (illness_ind == 3) { life -= (time / 5) * 7; }
@@ -134,12 +134,12 @@ bool Avatar::dead() {
   else return false;
 }
 
-void Avatar::food(int choice) { // кормление
+void Avatar::food(int choice) { // РєРѕСЂРјР»РµРЅРёРµ
   if (choice == 1) {
     if (gold >= 10) {
       hunger += 10;
       gold -= 10;
-      cout << name << " съел лунный пряник" << endl;
+      cout << name << " СЃСЉРµР» Р»СѓРЅРЅС‹Р№ РїСЂСЏРЅРёРє" << endl;
       return;
     }
   }
@@ -147,7 +147,7 @@ void Avatar::food(int choice) { // кормление
     if (gold >= 20) {
       hunger += 20;
       gold -= 20;
-      cout << name << " съел солёный тофу" << endl;
+      cout << name << " СЃСЉРµР» СЃРѕР»С‘РЅС‹Р№ С‚РѕС„Сѓ" << endl;
       return;
     }
   }
@@ -155,43 +155,43 @@ void Avatar::food(int choice) { // кормление
     if (gold >= 30) {
       hunger += 30;
       gold -= 30;
-      cout << name << " съел клёцки" << endl;
+      cout << name << " СЃСЉРµР» РєР»С‘С†РєРё" << endl;
       return;
     }
   }
   else {
-    cout << "Такой опции нет" << endl;
+    cout << "РўР°РєРѕР№ РѕРїС†РёРё РЅРµС‚" << endl;
     return;
   }
-  cout << "У вас недостаточно золота" << endl;
+  cout << "РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·РѕР»РѕС‚Р°" << endl;
 }
 
-void Avatar::heal(int choice) { // лечение
+void Avatar::heal(int choice) { // Р»РµС‡РµРЅРёРµ
   if (!illness_ind) {
-    cout << name << " здоров" << endl;
+    cout << name << " Р·РґРѕСЂРѕРІ" << endl;
     return;
   }
   if (choice == 1) {
     if (gold >= 30) {
       if (illness_ind != 1) {
-        cout << "Это лекарство не подходит для данной стадии болезни" << endl;
+        cout << "Р­С‚Рѕ Р»РµРєР°СЂСЃС‚РІРѕ РЅРµ РїРѕРґС…РѕРґРёС‚ РґР»СЏ РґР°РЅРЅРѕР№ СЃС‚Р°РґРёРё Р±РѕР»РµР·РЅРё" << endl;
         return;
       }
       illness_ind = 0;
       gold -= 30;
-      cout << "Вы вылечили " << name << " сиропом" << endl;
+      cout << "Р’С‹ РІС‹Р»РµС‡РёР»Рё " << name << " СЃРёСЂРѕРїРѕРј" << endl;
       return;
     }
   }
   else if (choice == 2) {
     if (gold >= 40) {
       if (illness_ind > 2) {
-        cout << "Это лекарство не подходит для данной стадии болезни" << endl;
+        cout << "Р­С‚Рѕ Р»РµРєР°СЂСЃС‚РІРѕ РЅРµ РїРѕРґС…РѕРґРёС‚ РґР»СЏ РґР°РЅРЅРѕР№ СЃС‚Р°РґРёРё Р±РѕР»РµР·РЅРё" << endl;
         return;
       }
       illness_ind = 0;
       gold -= 40;
-      cout << "Вы вылечили " << name << " таблетками" << endl;
+      cout << "Р’С‹ РІС‹Р»РµС‡РёР»Рё " << name << " С‚Р°Р±Р»РµС‚РєР°РјРё" << endl;
       return;
     }
   }
@@ -199,23 +199,23 @@ void Avatar::heal(int choice) { // лечение
     if (gold >= 50) {
       illness_ind = 0;
       gold -= 50;
-      cout << "Вы вылечили " << name << " антибиотиком" << endl;
+      cout << "Р’С‹ РІС‹Р»РµС‡РёР»Рё " << name << " Р°РЅС‚РёР±РёРѕС‚РёРєРѕРј" << endl;
       return;
     }
   }
   else {
-    cout << "Такой опции нет" << endl;
+    cout << "РўР°РєРѕР№ РѕРїС†РёРё РЅРµС‚" << endl;
     return;
   }
-  cout << "У вас недостаточно золота" << endl;
+  cout << "РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·РѕР»РѕС‚Р°" << endl;
 }
 
-void Avatar::shower(int choice) { // купание
+void Avatar::shower(int choice) { // РєСѓРїР°РЅРёРµ
   if (choice == 1) {
     if (gold >= 10) {
       hygiene += 15;
       gold -= 10;
-      cout << "Вы покупали " << name << " с мылом" << endl;
+      cout << "Р’С‹ РїРѕРєСѓРїР°Р»Рё " << name << " СЃ РјС‹Р»РѕРј" << endl;
       return;
     }
   }
@@ -223,7 +223,7 @@ void Avatar::shower(int choice) { // купание
     if (gold >= 30) {
       hygiene += 30;
       gold -= 30;
-      cout << "Вы покупали " << name << " с гелем" << endl;
+      cout << "Р’С‹ РїРѕРєСѓРїР°Р»Рё " << name << " СЃ РіРµР»РµРј" << endl;
       return;
     }
   }
@@ -231,15 +231,15 @@ void Avatar::shower(int choice) { // купание
     if (gold >= 40) {
       hygiene += 45;
       gold -= 40;
-      cout << "Вы покупали " << name << " с шампунем" << endl;
+      cout << "Р’С‹ РїРѕРєСѓРїР°Р»Рё " << name << " СЃ С€Р°РјРїСѓРЅРµРј" << endl;
       return;
     }
   }
   else {
-    cout << "Такой опции нет" << endl;
+    cout << "РўР°РєРѕР№ РѕРїС†РёРё РЅРµС‚" << endl;
     return;
   }
-  cout << "У вас недостаточно золота" << endl;
+  cout << "РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·РѕР»РѕС‚Р°" << endl;
 }
 
 int Avatar::random_number() {
@@ -254,7 +254,7 @@ int Avatar::random_number() {
   return number;
 }
 
-void Avatar::game() { // развлечения - мини-игра
+void Avatar::game() { // СЂР°Р·РІР»РµС‡РµРЅРёСЏ - РјРёРЅРё-РёРіСЂР°
   char mas[12], mas_p[12];
   int size, ind_mas;
   for (int x = 0; x < 3; x++) {
@@ -262,7 +262,7 @@ void Avatar::game() { // развлечения - мини-игра
     ind_mas = 0;
     for (int i = 0; i < size; i++)
       mas[i] = char(random_number());
-    cout << "Введите заданное слово в обратном порядке: ";
+    cout << "Р’РІРµРґРёС‚Рµ Р·Р°РґР°РЅРЅРѕРµ СЃР»РѕРІРѕ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ: ";
     for (int c = 0; c < size; c++) 
       cout << mas[c];
     cout << endl;
@@ -271,12 +271,12 @@ void Avatar::game() { // развлечения - мини-игра
       if (mas[x] == mas_p[c]) 
         ind_mas++;
     if (ind_mas == size) {
-      cout << "Правильно! Вы получили 5 монет" << endl;
+      cout << "РџСЂР°РІРёР»СЊРЅРѕ! Р’С‹ РїРѕР»СѓС‡РёР»Рё 5 РјРѕРЅРµС‚" << endl;
       gold += 5;
       fun += 33;
     }
     else 
-      cout << "Неверно!" << endl; 
+      cout << "РќРµРІРµСЂРЅРѕ!" << endl; 
   }
-  cout << "Мини-игра закончена" << endl;
+  cout << "РњРёРЅРё-РёРіСЂР° Р·Р°РєРѕРЅС‡РµРЅР°" << endl;
 }
